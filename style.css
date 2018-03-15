@@ -1,0 +1,147 @@
+body { 
+		font-family:Verdana, Arial, sans-serif;
+		background-color: #fff;}
+
+#wrapper { 
+		background-color: #DCD0C0; 
+        color: #fff;
+        width: 80%;
+		margin: auto;
+		min-width: 960px;
+		max-width: 1200px;} 
+
+nav { 
+		float: left;
+		width: 150px;} 
+
+nav ul { 
+		list-style-type: none;
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+		padding-top: 0px;
+		padding-right: 0px;
+		padding-bottom: 0px;
+		padding-left: 0px;}
+
+nav a { 
+		text-decoration: none;
+        padding: 10px;
+        font-weight: bold; }
+		
+nav ul li a { 
+		text-decoration: none;
+		font-weight: bold; 
+		padding-top: 20px;
+		padding-right: 20px;
+		padding-bottom: 20px;
+		padding-left: 20px;
+		display: block;
+		background-color: #DCD0C0;
+		border-bottom-style: solid;
+		border-width: 0px 0px 1px;
+		border-bottom-color: #373737;}
+
+nav a:link { 
+		color: #373737;}
+		
+nav a:visited { 
+		color: #5d5d5d; }
+		
+nav a:hover { 
+		color: #DCD0C0; 
+		background-color: #373737;}
+
+main { 
+		display: block; /* for Internet Explorer version 10 and below */
+		font-family: arial, sans-serif;
+        margin-left: 150px;
+        padding: 20px;
+        background-color: #f4f4f4;
+        color: #373737;} 
+
+header { 
+		background-color: #c0b283;
+        color: #fff; 
+        font-size: 150%; 
+        padding: 10px 10px 10px 155px;
+		background-image: url(lighthouselogo.jpg); 
+		background-repeat: no-repeat;}
+
+h1 { 
+		margin-bottom: 0; 
+		color: #373737;} 
+
+#tagline { 
+		padding-right: 20px;
+		font-size: .80em;
+		font-style: italic;
+		text-align: right;
+		color: #5d5d5d;}	        
+
+h2 { 
+		color: #3737373; 
+		font-size: 200%;}
+		
+p {padding: 20px;}
+
+article {
+		background-color: #f4f4f4;
+		background-image: none;}
+
+article header { 
+		background-color: #f4f4f4;
+		color: #3737373;
+		padding-left: 0;
+		font-size: 90%;
+		height: auto;}
+
+#floatright { 
+		margin: 10px;
+        float: right;}
+
+aside { 
+		float: right;
+		margin-right: 40px;
+		background-color: #DCD0C0;
+		padding: 20px;
+		font-size: 80%;
+		box-shadow: 5px 5px 5px #333333;
+		position: relative;
+		top: -40px;}
+
+td{
+		padding: 5px;
+}
+
+textarea{
+		width: 300px;
+		height: 100px;
+}
+		
+footer { 
+		font-size:70%;
+		text-align: center;
+		clear: right;
+		background-color: #c0b283;
+		padding: 20px;}
+
+div.img {
+    margin: 5px;
+    display: inline-block;
+    width: 180px;
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+.floatright { float: right;
+margin: 10px; }

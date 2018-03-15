@@ -1,0 +1,4 @@
+drop user"STUDENT_USER"@"localhost";
+create user"STUDENT_USER"@"localhost" identified by"PHPISFUN";
+grant all privileges on courseselector.* to"STUDENT_USER"@"localhost";
+flush privileges;
