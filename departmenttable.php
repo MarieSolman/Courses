@@ -50,6 +50,7 @@ echo '
 </table>
 </body>';
 
+include 'footer.php';
  
 // Should we need to run this? read section VII
 mysqli_free_result($query);

@@ -1,0 +1,146 @@
+CREATE DATABASE courseselector;
+USE DATABASE courseselector;
+
+create user"STUDENT_USER"@"localhost" identified by"PHPISFUN";
+grant all privileges on courseselector.* to"STUDENT_USER"@"localhost";
+flush privileges;
+
+CREATE TABLE Department(
+Did CHAR(11),
+Dname CHAR(20),
+PRIMARY KEY (Did),
+UNIQUE(Dname));
+
+CREATE TABLE Professor(
+Pid CHAR(11),
+Pname CHAR(20),
+AffiliatedDept CHAR(11),
+PRIMARY KEY (Pid),
+FOREIGN KEY (AffiliatedDept) REFERENCES Department (Did),
+UNIQUE(Pname));
+
+CREATE TABLE Student(
+Sid CHAR(11),
+Sname CHAR(20),
+Advisor CHAR(11),
+PRIMARY KEY (Sid),
+UNIQUE(Sname),
+FOREIGN KEY (Advisor) REFERENCES Professor (Pid));
+
+CREATE TABLE Courses(
+cid CHAR(11),
+Cname CHAR(20),
+Cdesc CHAR(100),
+AssistSid CHAR(100),
+PRIMARY KEY (cid),
+FOREIGN KEY (AssistSid) REFERENCES Student (Sid),
+UNIQUE(Cname));
+
+CREATE TABLE In_Program(
+Sid CHAR(11),
+Did CHAR(11),
+ProgramType CHAR(10),
+PRIMARY KEY (Sid, Did),
+FOREIGN KEY (Sid) REFERENCES Student (Sid),
+FOREIGN KEY (Did) REFERENCES Department (Did));
+
+CREATE TABLE Enrolled_In(
+Sid CHAR(11),
+Cid CHAR(11),
+Year INTEGER,
+Semester CHAR(10),
+PRIMARY KEY (Sid, Cid),
+FOREIGN KEY (Sid) REFERENCES Student (Sid),
+FOREIGN KEY (Cid) REFERENCES Courses (Cid));
+
+CREATE TABLE Report(
+Sid CHAR(11),
+Cid CHAR(11),
+Report CHAR(10),
+PRIMARY KEY (Sid, Cid),
+FOREIGN KEY (Sid) REFERENCES Student (Sid),
+FOREIGN KEY (Cid) REFERENCES Courses (Cid));
+
+CREATE TABLE Wait_List(
+Sid CHAR(11),
+Cid CHAR(11),
+Wait_Position INTEGER,
+PRIMARY KEY (Sid, Cid),
+FOREIGN KEY (Sid) REFERENCES Student (Sid),
+FOREIGN KEY (Cid) REFERENCES Courses (Cid));
+
+CREATE TABLE Watching(
+Sid CHAR(11),
+Cid CHAR(11),
+PRIMARY KEY (Sid, Cid),
+FOREIGN KEY (Sid) REFERENCES Student (Sid),
+FOREIGN KEY (Cid) REFERENCES Courses (Cid));
+
+CREATE TABLE Assistancy(
+Sid CHAR(11),
+Cid CHAR(11),
+PRIMARY KEY (Sid, Cid),
+FOREIGN KEY (Sid) REFERENCES Student (Sid),
+FOREIGN KEY (Cid) REFERENCES Courses (Cid));
+
+CREATE TABLE Teaches(
+Pid CHAR(11),
+Cid CHAR(11),
+PRIMARY KEY (Pid, Cid),
+FOREIGN KEY (Pid) REFERENCES Professor (Pid),
+FOREIGN KEY (Cid) REFERENCES Courses (Cid));
+
+CREATE TABLE Offers(
+Did CHAR(11),
+Cid CHAR(11),
+PRIMARY KEY (Did, Cid),
+FOREIGN KEY (Did) REFERENCES Department (Did),
+FOREIGN KEY (Cid) REFERENCES Courses (Cid));
+
+
+INSERT INTO Department (Did, Dname) VALUES ('000-00-0001', 'Computer Science');
+INSERT INTO Department (Did, Dname) VALUES ('000-00-0002', 'Data Science');
+INSERT INTO Department (Did, Dname) VALUES ('000-00-0003', 'Business');
+INSERT INTO Department (Did, Dname) VALUES ('000-00-0004', 'Chemical Engineering');
+INSERT INTO Department (Did, Dname) VALUES ('000-00-0005', 'Physics');
+
+INSERT INTO Professor (Pid, Pname, AffiliatedDept) VALUES ('000-00-0001', 'Xiangnan Kong', '000-00-0002');
+INSERT INTO Professor (Pid, Pname, AffiliatedDept) VALUES ('000-00-0002', 'Harrison Lane', '000-00-0002');
+INSERT INTO Professor (Pid, Pname, AffiliatedDept) VALUES ('000-00-0003', 'Gabor Sarkozy', '000-00-0001');
+INSERT INTO Professor (Pid, Pname, AffiliatedDept) VALUES ('000-00-0004', 'George T. Heineman', '000-00-0001');
+INSERT INTO Professor (Pid, Pname, AffiliatedDept) VALUES ('000-00-0005', 'Herman Servatius', '000-00-0001');
+
+INSERT INTO Student (Sid, Sname, Advisor) VALUES ('000-01-0001', 'Linshuo Li', '000-00-0001');
+INSERT INTO Student (Sid, Sname, Advisor) VALUES ('000-01-0002', 'Randy Monahan', '000-00-0001');
+INSERT INTO Student (Sid, Sname, Advisor) VALUES ('000-01-0003', 'Greg Colter', '000-00-0001');
+INSERT INTO Student (Sid, Sname, Advisor) VALUES ('000-01-0004', 'Arya Hopkins', '000-00-0001');
+INSERT INTO Student (Sid, Sname, Advisor) VALUES ('000-01-0005', 'Susan Cheryl', '000-00-0001');
+
+
+INSERT INTO Courses (cid, Cname, Cdesc, AssistSid) VALUES ('573', 'Data Visualization', '', '000-01-0001');
+INSERT INTO Courses (cid, Cname, Cdesc, AssistSid) VALUES ('501', 'Introduction to Data Science', '', '000-01-0002');
+INSERT INTO Courses (cid, Cname, Cdesc, AssistSid) VALUES ('542', 'Database Management', '', '000-01-0003');
+
+INSERT INTO In_Program (Sid, Did, ProgramType) VALUES ('000-01-0001', '000-00-0001', '');
+INSERT INTO In_Program (Sid, Did, ProgramType) VALUES ('000-01-0002', '000-00-0002', '');
+
+INSERT INTO Enrolled_In (Sid, Cid, Year, Semester) VALUES ('000-01-0001', '573', 2017, 'Fall');
+INSERT INTO Enrolled_In (Sid, Cid, Year, Semester) VALUES ('000-01-0002', '501', 2017, 'Fall');
+
+INSERT INTO Report (Sid, Cid, Report) VALUES ('000-01-0001', '573', 'A');
+INSERT INTO Report (Sid, Cid, Report) VALUES ('000-01-0002', '501', 'A');
+
+INSERT INTO Wait_List (Sid, Cid, Wait_Position) VALUES ('000-01-0001', '542', 1);
+INSERT INTO Wait_List (Sid, Cid, Wait_Position) VALUES ('000-01-0002', '542', 0);
+
+INSERT INTO Watching (Sid, Cid) VALUES ('000-01-0001', '542');
+INSERT INTO Watching (Sid, Cid) VALUES ('000-01-0002', '542');
+
+INSERT INTO Assistancy (Sid, Cid) VALUES ('000-01-0001', '573');
+INSERT INTO Assistancy (Sid, Cid) VALUES ('000-01-0002', '501');
+
+INSERT INTO Teaches (Pid, Cid) VALUES ('000-00-0001', '501');
+INSERT INTO Teaches (Pid, Cid) VALUES ('000-00-0002', '573');
+
+INSERT INTO Offers (Did, Cid) VALUES ('000-00-0001', '573');
+INSERT INTO Offers (Did, Cid) VALUES ('000-00-0002', '501');

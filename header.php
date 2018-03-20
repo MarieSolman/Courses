@@ -4,7 +4,7 @@
 <?php
 
   echo '<header>
-    <h1>WPI Course Selector</h1>
+    <h1 style="color:white">WPI Course Selector</h1>
   </header>';
   
 ?>

@@ -10,9 +10,8 @@
       <li><a href="viewGrades.php">Grades</a></li>
       <li><a href="courses.php">Available Courses</a></li>
       <li><a href="enrolledIn.php">Enrolled Courses</a></li>
-      <li><a href="professor.php">Professor Signup</a></li>
+      <li><a href="coursesdisplay.php">Course Display</a></li>
       <li><a href="professortable.php">Professors</a></li>
-      <li><a href="department.php">Department Signup</a></li>
       <li><a href="departmenttable.php">Departments</a></li>
 	</ul>
   </nav>';
