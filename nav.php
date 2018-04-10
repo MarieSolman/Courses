@@ -36,6 +36,9 @@ else {
 }
 
 	echo '</ul>
+      <li><a href="professortable.php">Professors</a></li>
+      <li><a href="departmenttable.php">Departments</a></li>
+	</ul>
   </nav>';
   
 ?>
