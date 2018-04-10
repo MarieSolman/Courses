@@ -13,6 +13,7 @@ if (isset($_SESSION["professor"])) {
       <li><a href="professortable.php">Professors</a></li>
       <li><a href="updateGrades.php">Update Grades</a></li>
       <li><a href="departmenttable.php">Departments</a></li>
+      <li><a href="addCourseAndSelectTA.php">Create Course</a></li>
       <li><a href="logOut.php">Log Out</a></li>
   ';
 }
@@ -36,9 +37,6 @@ else {
 }
 
 	echo '</ul>
-      <li><a href="professortable.php">Professors</a></li>
-      <li><a href="departmenttable.php">Departments</a></li>
-	</ul>
   </nav>';
   
 ?>
