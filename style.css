@@ -33,9 +33,9 @@ nav a {
 nav ul li a { 
 		text-decoration: none;
 		font-weight: bold; 
-		padding-top: 20px;
+		padding-top: 5px;
 		padding-right: 20px;
-		padding-bottom: 20px;
+		padding-bottom: 5px;
 		padding-left: 20px;
 		display: block;
 		background-color: #DCD0C0;
@@ -62,12 +62,14 @@ main {
         color: #373737;} 
 
 header { 
-		background-color: #c0b283;
-        color: #fff; 
-        font-size: 150%; 
-        padding: 10px 10px 10px 155px;
-		background-image: url(lighthouselogo.jpg); 
-		background-repeat: no-repeat;}
+		background-color: #AC2A38;
+        	color: #fff; 
+        	font-size: 150%; 
+        	padding: 10px 10px 10px 155px;}
+
+h.hi {
+		color: #fff;
+}
 
 h1 { 
 		margin-bottom: 0; 
@@ -124,7 +126,8 @@ footer {
 		font-size:70%;
 		text-align: center;
 		clear: right;
-		background-color: #c0b283;
+		background-color: #AC2A38;
+		color: #fff;
 		padding: 20px;}
 
 div.img {

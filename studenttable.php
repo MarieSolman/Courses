@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Submission Complete-</title>
+	<title>WPI Course Selector</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
 </head>	
@@ -52,6 +52,7 @@ echo '
 </table>
 </body>';
 
+include 'footer.php';
  
 // Should we need to run this? read section VII
 mysqli_free_result($query);

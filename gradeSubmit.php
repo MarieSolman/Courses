@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>WPI Course Selector</title>
+	<title>Submission Complete-</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
 </head>	
@@ -17,13 +17,14 @@
   $conn = new mysqli($hn, $un, $pw, $db);
   if ($conn->connect_error) die($conn->connect_error);
 
-  if (isset($_POST['myDId']) &&
-      isset($_POST['myDName']))
+  if (isset($_POST['myGrade']))
   {
-    $myDId = get_post($conn, 'myDId');
-	$myDName = get_post($conn, 'myDName');
+    $myGrade = get_post($conn, 'myGrade');
+    $myStudentId = '000-01-0002';
+    $myCourseId = '501';
 	
-    $query = "INSERT INTO department VALUES('$myDId', '$myDName')";
+    $query = "INSERT INTO report VALUES('$myStudentId', '$myCourseId','$myGrade')
+              ON DUPLICATE KEY UPDATE Report = '$myGrade'";
     
 	$result = $conn->query($query);
 
@@ -35,8 +36,9 @@
 	{
 		echo "<main>";
 		echo "<h1> Thank you for your submission: </h1><br>";
-		echo "Department ID: " . $myProfessorId . "<br>";
-		echo "Department Name: " . $myProfessorName . "<br><br><br>";
+		echo "Student ID: " . $myStudentId . "<br>";
+		echo "Course ID: " . $myCourseId . "<br>";
+		echo "Grade: " . $myGrade . "<br><br><br>";
 		echo "</main>";
 	}
   }

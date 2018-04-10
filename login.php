@@ -7,5 +7,5 @@
   $un = 'STUDENT_USER';
 
   $pw = 'PHPISFUN';
-  $tempSid = '000-01-0002'
+  $tempSid = '000-01-0002';
 ?>

@@ -3,7 +3,7 @@
 <body>
 <?php
 
-  echo '<footer>Copyright &copy; 2016</footer>';
+  echo '<footer>Copyright &copy; 2018</footer>';
   
 ?>
 </body>

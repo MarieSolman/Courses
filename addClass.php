@@ -24,7 +24,6 @@ if (isset($_GET['Cid']) && is_numeric($_GET['Cid']))
 // get id value
 
 $Cid = $_GET['Cid'];
-$Cname = $_GET['Cname'];
 
 // Add the entry
 

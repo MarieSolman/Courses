@@ -17,16 +17,14 @@
 
   <main>
 
-      <h2>Student Information</h2>
+      <h2>Update Grades</h2>
 
-      <form action="studentSubmit.php" method="post">
+      <p>Grades for hardcoded professor 000-00-0001, course 501, student 000-01-0002</p>
+
+      <form action="gradeSubmit.php" method="post">
 <table>
-  <tr><td>Student ID:</td>
-  <td><input type="text" name="myStudentId" class="myStudentId"></td></tr>
-  <tr><td>Student Name:</td>
-  <td><input type="text" name="myStudentName" class="myStudentName"></td></tr>
-  <tr><td>Advisor ID:</td>
-  <td><input type="text" name="myAdvisorId" class="myAdvisorId"></td></tr>
+  <tr><td>Grade:</td>
+  <td><input type="text" name="myGrade" class="myGrade"></td></tr>
 </table>
 
 <br>
