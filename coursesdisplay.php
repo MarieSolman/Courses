@@ -22,6 +22,7 @@ $query = mysqli_query($conn, $sql);
 if (!$query) {
     die ('SQL Error: ' . mysqli_error($conn));
 }
+
 echo '<table>
         <thead>
             <tr>
@@ -51,6 +52,10 @@ echo '
     </tbody>
 </table>
 </body>';
+
+
+include 'footer.php';
+
 // Should we need to run this? read section VII
 mysqli_free_result($query);
 // Should we need to run this? read section VII

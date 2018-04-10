@@ -29,6 +29,8 @@ $query = mysqli_query($conn, $sql);
 if (!$query) {
     die ('SQL Error: ' . mysqli_error($conn));
 }
+
+echo '<br>Enrolled courses for hardcoded student 000-01-0002<br><br>';
  
 echo '<table>
         <thead>

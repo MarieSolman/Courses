@@ -32,6 +32,7 @@ cid CHAR(11),
 Cname CHAR(20),
 Cdesc CHAR(100),
 AssistSid CHAR(100),
+Timetable CHAR(20),
 PRIMARY KEY (cid),
 FOREIGN KEY (AssistSid) REFERENCES Student (Sid),
 UNIQUE(Cname));
