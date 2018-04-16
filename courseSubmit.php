@@ -26,14 +26,14 @@
     $courseId = get_post($conn, 'courseId');
 	$courseName = get_post($conn, 'courseName');
 	$courseDescription = get_post($conn, 'courseDescription');
-	$assistantId = get_post($conn, 'assistantId');
+	$assistant = get_post($conn, 'assistant');
 	$timeOffer = get_post($conn, 'timeTable');
 	$departmentId = get_post($conn, 'departmentId');
 	
-    $query = "INSERT INTO courses VALUES('$courses', 
+    $query = "INSERT INTO courses VALUES('$courseId', 
     		'$courseName',
     		'$courseDescription',
-    		'$assistantId',
+    		'$assistant',
     		'$timeOffer')";
     
 	$result_course = $conn->query($query);
@@ -71,7 +71,7 @@
 	}
 
 	// Insert assistancy
-	$query = "INSERT INTO assistancy VALUES('$assistantId',
+	$query = "INSERT INTO assistancy VALUES('$assistant',
 											'$courseId')";
 	$result_assistancy = $conn->query($query);
 
@@ -83,7 +83,7 @@
 	{
 		echo "<main>";
 		echo "<br> Course ID:" . $courseId . "<br>";
-		echo "<br> Assistant ID:" . $assistantId . "<br>";
+		echo "<br> Assistant ID:" . $assistant . "<br>";
 		echo "Succeed";
 		echo "</main>";
 	}

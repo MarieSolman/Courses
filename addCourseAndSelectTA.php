@@ -27,9 +27,8 @@
   <td><input type="text" name="courseId" class="courseId"></td></tr>
   <tr><td>Course Description:</td>
   <td><input type="text" name="courseDescription" class="courseDescription"></td></tr>
-
   <tr><td>Assistant ID:</td>
-  <td><input type="text" name="assitantId" class="assistantId"></td></tr>
+  <td><input type="text" name="assistant" class="assistant"></td></tr>
   <tr><td>Time offered:</td>
   <td><input type="text" name="timeTable" class="timeTable"></td></tr>
   <tr><td>Department:</td>
