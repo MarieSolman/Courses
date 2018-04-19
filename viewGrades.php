@@ -30,6 +30,8 @@ if (!$query) {
     die ('SQL Error: ' . mysqli_error($conn));
 }
 
+echo '<main>';
+
 echo '<br>Grades for hardcoded student 000-01-0002<br><br>';
  
 echo '<table>
@@ -51,6 +53,11 @@ while ($row = mysqli_fetch_array($query))
 echo '
     </tbody>
 </table>
+
+<br><br>
+<a href="gradesPdf.php" target="_blank">Get PDF</a>
+
+</main>
 </body>';
 
 include 'footer.php';

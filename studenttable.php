@@ -20,6 +20,7 @@ if (!$conn) {
     die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
 }
 
+echo '<main>';
 echo "<div style='padding: 10px;'>
     <input type='text' id='myInput' style='width: 30%' onkeyup='myFunction()' placeholder='Search for courses' title='Type in a course'>
 </div>";
@@ -105,8 +106,13 @@ function sortTable(n) {
     }
   }
 }
-</script>
-</body>";
+</script>";
+
+echo '<br><br>
+<a href="studentPdf.php" target="_blank">Get PDF</a>
+
+</main>
+</body>';
 
 include 'footer.php';
  

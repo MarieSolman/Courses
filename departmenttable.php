@@ -29,7 +29,8 @@ if (!$query) {
     die ('SQL Error: ' . mysqli_error($conn));
 }
  
-echo '<table>
+echo '<main>
+      <table>
         <thead>
             <tr>
                 <th>Department ID</th>
@@ -48,6 +49,11 @@ while ($row = mysqli_fetch_array($query))
 echo '
     </tbody>
 </table>
+
+<br><br>
+<a href="departmentPdf.php" target="_blank">Get PDF</a>
+
+</main>
 </body>';
 
 include 'footer.php';
