@@ -4,7 +4,7 @@
 	<title>WPI Course Selector</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
-</head>	
+</head>
 <body>
 
 <div id="wrapper">
@@ -14,18 +14,20 @@
   include 'nav.php';
 
   require_once 'login.php';
- 
+
 $conn = mysqli_connect($hn, $un, $pw, $db);
 if (!$conn) {
-    die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
+    die ('Fail to connect to MySQL: ' . mysqli_connect_error());
 }
 
 echo '<main>';
+echo '<h2>List of Students</h2>';
+
 echo "<div style='padding: 10px;'>
     <input type='text' id='myInput' style='width: 30%' onkeyup='myFunction()' placeholder='Search for courses' title='Type in a course'>
 </div>";
 
-$query = 'SELECT Sid, Sname, Advisor 
+$query = 'SELECT Sid, Sname, Advisor
         FROM student';
 
 $result = mysqli_query($conn, $query);
@@ -39,15 +41,21 @@ echo "<table id='myTable'>
             <th onclick='sortTable(0)'>Student ID</th>
             <th onclick='sortTable(1)'>Student Name</th>
             <th onclick='sortTable(2)'>Advisor ID</th>
+						<th>Advisor Name</th>
         </tr>
     </thead>
     <tbody id='myTBODY'>";
 
 while ($row = mysqli_fetch_array($result)) {
+	$sql2 = 'SELECT Pname
+						FROM Professor Where Pid =\''.$row['Advisor'].'\'';
+	$query2 = mysqli_query($conn, $sql2);
+	$Pname = mysqli_fetch_array($query2);
     echo '<tr>
         <td>' . $row['Sid'] . '</td>
         <td>' . $row['Sname'] . '</td>
         <td>' . $row['Advisor'] . '</td>
+				<td>'.$Pname['Pname'].'</td>
         </tr>';
 }
 
@@ -115,9 +123,9 @@ echo '<br><br>
 </body>';
 
 include 'footer.php';
- 
+
 // Should we need to run this? read section VII
 mysqli_free_result($result);
- 
+
 // Should we need to run this? read section VII
 mysqli_close($conn);

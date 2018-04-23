@@ -9,32 +9,25 @@
 
 <div id="wrapper">
 <?php // sqltest.php
-
   include 'header.php';
   include 'nav.php';
-
   require_once 'login.php';
  
 $conn = mysqli_connect($hn, $un, $pw, $db);
 if (!$conn) {
     die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
 }
-
 echo '<main>';
-
+echo '<h2>Departments</h2>';
 echo "<div style='padding: 10px;'>
     <input type='text' id='myInput' style='width: 30%' onkeyup='myFunction()' placeholder='Search for departments'>
 </div>";
-
 $query = 'SELECT Did, Dname 
         FROM department';
-
 $result = mysqli_query($conn, $query);
 if (!$result) {
     echo 'Could not get data: ' . mysqli_error($conn);
 }
-
-
 echo "<table id='myTable'>
     <thead>
         <tr>
@@ -43,14 +36,12 @@ echo "<table id='myTable'>
         </tr>
     </thead>
     <tbody id='myTBODY'>";
-
 while ($row = mysqli_fetch_array($result)) {
     echo '<tr>
         <td>' . $row['Did'] . '</td>
         <td>' . $row['Dname'] . '</td>
         </tr>';
 }
-
 echo "
 </tbody>
 </table>
@@ -107,10 +98,8 @@ function sortTable(n) {
   }
 }
 </script>
-
 </main>
 </body>";
-
 include 'footer.php';
  
 // Should we need to run this? read section VII

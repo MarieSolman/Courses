@@ -4,7 +4,7 @@
 	<title>WPI Course Selector</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
-</head>	
+</head>
 <body>
 
 <div id="wrapper">
@@ -14,17 +14,19 @@
   include 'nav.php';
 
   require_once 'login.php';
- 
+
 $conn = mysqli_connect($hn, $un, $pw, $db);
 if (!$conn) {
-    die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
+    die ('Fail to connect to MySQL: ' . mysqli_connect_error());
 }
 
 echo '<main>';
+echo '<h2>List of Professors</h2>';
+
 echo "<div style='padding: 10px;'>
     <input type='text' id='myInput' style='width: 30%' onkeyup='myFunction()' placeholder='Search for professors'>
 </div>";
- 
+
 $query = 'SELECT Pid, Pname, AffiliatedDept
         FROM professor';
 
@@ -44,10 +46,14 @@ echo "<table id='myTable'>
     <tbody id='myTBODY'>";
 
 while ($row = mysqli_fetch_array($result)) {
+	$sql3 = "SELECT Dname
+						FROM Department Where Department.Did = '".$row['AffiliatedDept']."'";
+	$query3 = mysqli_query($conn, $sql3);
+	$Dname = mysqli_fetch_array($query3);
     echo '<tr>
         <td>' . $row['Pid'] . '</td>
         <td>' . $row['Pname'] . '</td>
-        <td>' . $row['AffiliatedDept'] . '</td>
+        <td>' . $Dname['Dname'] . '</td>
         </tr>';
 }
 
@@ -116,9 +122,9 @@ echo '<br><br>
 </body>';
 
 include 'footer.php';
- 
+
 // Should we need to run this? read section VII
 mysqli_free_result($result);
- 
+
 // Should we need to run this? read section VII
 mysqli_close($conn);

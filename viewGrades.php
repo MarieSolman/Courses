@@ -32,7 +32,7 @@ if (!$query) {
 
 echo '<main>';
 
-echo '<br>Grades for hardcoded student 000-01-0002<br><br>';
+echo '<h2>My Grades</h2>';
  
 echo '<table>
         <thead>

@@ -16,9 +16,6 @@
   require_once 'login.php';
 
 	echo '<main>';
-
-	echo '<h2>Update Grades</h2>';
-
 	$conn = new mysqli($hn, $un, $pw, $db);
 	if ($conn->connect_error) die($conn->connect_error);
 
@@ -29,6 +26,9 @@
 		if (!$query) {
 			die ('SQL Error: ' . mysqli_error($conn));
 		}
+
+
+		echo '<h2>Add/Drop students</h2>';
 
 		echo '<table>
 		<thead>
@@ -45,7 +45,7 @@
 			echo '<tr>
 			<td>'.$row['cid'].'</td>
 			<td>'.$row['Cname'].'</td>
-			<td><a href="updateGrades2.php?Cid='.$row['cid'].'">Select</a></td>
+			<td><a href="modify2.php?Cid='.$row['cid'].'">Select</a></td>
 			</tr>';
 		}
 		echo '</tbody>
@@ -58,6 +58,19 @@
 		mysqli_close($conn);
 ?>
 
+<form action="modify2.php" method="post">
+	<table>
+		<tr><td>course ID:</td>
+			<td><input type="text" name="courseId" class="courseId"></td></tr>
+				</table>
+				<br>
+
+				<input type="submit" value="Submit">
+				<input type="reset">
+
+				<br><br><br><br>
+
+			</form>
 </main>
 
 <?php

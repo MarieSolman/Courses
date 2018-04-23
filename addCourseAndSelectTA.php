@@ -18,7 +18,6 @@
   <main>
 
       <h2>Add course</h2>
-      <h3>Course for hard coded professor 000-00-0001</h3>
       <form action="courseSubmit.php" method="post">
 <table>
   <tr><td>Course Name:</td>
