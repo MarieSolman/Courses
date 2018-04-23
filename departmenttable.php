@@ -9,58 +9,101 @@
 
 <div id="wrapper">
 <?php // sqltest.php
-
   include 'header.php';
   include 'nav.php';
-
   require_once 'login.php';
  
 $conn = mysqli_connect($hn, $un, $pw, $db);
 if (!$conn) {
     die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
 }
- 
-$sql = 'SELECT Did, Dname 
+echo '<main>';
+echo '<h2>Departments</h2>';
+echo "<div style='padding: 10px;'>
+    <input type='text' id='myInput' style='width: 30%' onkeyup='myFunction()' placeholder='Search for departments'>
+</div>";
+$query = 'SELECT Did, Dname 
         FROM department';
-         
-$query = mysqli_query($conn, $sql);
- 
-if (!$query) {
-    die ('SQL Error: ' . mysqli_error($conn));
+$result = mysqli_query($conn, $query);
+if (!$result) {
+    echo 'Could not get data: ' . mysqli_error($conn);
 }
- 
-echo '<main>
-      <h2>Departments</h2>
-      <table>
-        <thead>
-            <tr>
-                <th>Department ID</th>
-                <th>Department Name</th>
-            </tr>
-        </thead>
-        <tbody>';
-         
-while ($row = mysqli_fetch_array($query))
-{
+echo "<table id='myTable'>
+    <thead>
+        <tr>
+            <th onclick='sortTable(0)'>Department ID</th>
+            <th onclick='sortTable(1)'>Department Name</th>
+        </tr>
+    </thead>
+    <tbody id='myTBODY'>";
+while ($row = mysqli_fetch_array($result)) {
     echo '<tr>
-            <td>'.$row['Did'].'</td>
-            <td>'.$row['Dname'].'</td>
+        <td>' . $row['Did'] . '</td>
+        <td>' . $row['Dname'] . '</td>
         </tr>';
 }
-echo '
-    </tbody>
+echo "
+</tbody>
 </table>
-
-<br><br>
-<a href="departmentPdf.php" target="_blank">Get PDF</a>
-
+<script>
+function myFunction() {
+    let input, filter, tbody, tr, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    tbody = document.getElementById('myTBODY');
+    tr = tbody.getElementsByTagName('tr');
+    for(i = 0; i < tr.length; i++) {
+        a = tr[i].getElementsByTagName('td')[1];
+        if(a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = '';
+        } else {
+            tr[i].style.display = 'none';
+        }
+    }
+}
+function sortTable(n) {
+  let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById('myTable');
+  switching = true;
+  dir = 'asc';
+  while (switching) {
+    switching = false;
+    rows = table.getElementsByTagName('TR');
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName('TD')[n];
+      y = rows[i + 1].getElementsByTagName('TD')[n];
+      if (dir == 'asc') {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == 'desc') {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          shouldSwitch= true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchcount ++;
+    } else {
+      if (switchcount == 0 && dir == 'asc') {
+        dir = 'desc';
+        switching = true;
+      }
+    }
+  }
+}
+</script>
 </main>
-</body>';
-
+</body>";
 include 'footer.php';
  
 // Should we need to run this? read section VII
-mysqli_free_result($query);
+mysqli_free_result($result);
  
 // Should we need to run this? read section VII
 mysqli_close($conn);
