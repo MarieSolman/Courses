@@ -12,6 +12,8 @@
   include 'header.php';
   include 'nav.php';
   require_once 'login.php';
+  echo '<main>';
+
 $conn = mysqli_connect($hn, $un, $pw, $db);
 if (!$conn) {
     die ('Fail to connect to MySQL: ' . mysqli_connect_error());
@@ -51,6 +53,8 @@ $taName = mysqli_fetch_array($query2);
 echo '
     </tbody>
 </table>
+
+</main>
 </body>';
 
 

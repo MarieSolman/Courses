@@ -30,6 +30,7 @@ if (!$query) {
 }
  
 echo '<main>
+      <h2>Departments</h2>
       <table>
         <thead>
             <tr>

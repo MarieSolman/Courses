@@ -31,7 +31,7 @@ if (!$query) {
 }
 
 echo '<main>';
-echo '<br>Enrolled courses for hardcoded student 000-01-0002<br><br>';
+echo '<h2>Available Courses</h2>';
  
 echo '<table>
         <thead>

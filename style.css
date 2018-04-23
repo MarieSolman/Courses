@@ -4,11 +4,12 @@ body {
 
 #wrapper { 
 		background-color: #DCD0C0; 
-        color: #fff;
-        width: 80%;
+        	color: #fff;
+        	width: 80%;
 		margin: auto;
 		min-width: 960px;
-		max-width: 1200px;} 
+		max-width: 1200px;
+		height: 100%;} 
 
 nav { 
 		float: left;

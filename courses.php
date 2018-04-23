@@ -21,6 +21,7 @@ if (!$conn) {
 }
 
 echo '<main>';
+echo '<h2>Available Courses</h2>';
 
 echo "<div style='padding: 10px;'>
     <input type='text' id='myInput' style='width: 30%' onkeyup='myFunction()' placeholder='Search for courses' title='Type in a course'>
@@ -33,8 +34,6 @@ $result = mysqli_query($conn, $query);
 if (!$result) {
     echo 'Could not get data: ' . mysqli_error($conn);
 }
-
-echo '<br>Available courses for hardcoded student 000-01-0002<br><br>';
 
 echo "<table id='myTable'>
     <thead>
