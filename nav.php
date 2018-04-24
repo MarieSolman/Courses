@@ -5,7 +5,8 @@
 
 session_start();
 
-  echo '<nav>
+  echo '
+<nav>
     <ul>';
 
 if (isset($_SESSION["professor"])) {

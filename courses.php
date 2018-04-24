@@ -40,6 +40,9 @@ echo "<table id='myTable'>
         <tr>
             <th onclick='sortTable(0)'>Course ID</th>
             <th onclick='sortTable(1)'>Course Name</th>
+            <th>Capacity</th>
+            <th>Registered</th>
+            <th>Waitlisted</th>
             <th>Add Course</th>
         </tr>
     </thead>
@@ -47,9 +50,12 @@ echo "<table id='myTable'>
 
 while ($row = mysqli_fetch_array($result)) {
     echo '<tr>
-        <td>' . $row['cid'] . '</td>
-        <td>' . $row['Cname'] . '</td>
-        <td><a href="addClass.php?Cid=' . $row['cid'] . '">Add</a></td>
+        <td align="center">' . $row['cid'] . '</td>
+        <td align="center">' . $row['Cname'] . '</td>
+        <td align="center">' . $row['Capacity'] . '</td>
+        <td align="center">' . $row['Registered'] . '</td>
+        <td align="center">' . $row['Waitlisted'] . '</td>
+        <td align="center"><a href="addClass.php?Cid=' . $row['cid'] . '">Add</a></td>
         </tr>';
 }
 

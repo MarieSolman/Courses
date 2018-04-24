@@ -9,7 +9,7 @@ body {
 		margin: auto;
 		min-width: 960px;
 		max-width: 1200px;
-		height: 100%;} 
+		height: 100%;}
 
 nav { 
 		float: left;
@@ -115,7 +115,12 @@ aside {
 		top: -40px;}
 
 td{
-		padding: 5px;
+		padding: 5px 5px 5px 5px;
+		text-align: center;
+}
+
+th{
+	padding: 5px 15px 5px 15px;
 }
 
 textarea{
@@ -149,3 +154,13 @@ div.desc {
 
 .floatright { float: right;
 margin: 10px; }
+
+input, select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

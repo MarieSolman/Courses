@@ -23,7 +23,11 @@ if (!$conn) {
 $sql = 'SELECT *
         FROM enrolled_in NATURAL JOIN courses
         WHERE Sid="000-01-0002"';
-         
+
+$sql2 = 'SELECT *
+        FROM enrolled_in NATURAL JOIN wait_list
+        WHERE Sid="000-01-0002"';
+
 $query = mysqli_query($conn, $sql);
  
 if (!$query) {
@@ -31,7 +35,7 @@ if (!$query) {
 }
 
 echo '<main>';
-echo '<h2>Available Courses</h2>';
+echo '<h2>Enrolled In</h2>';
  
 echo '<table>
         <thead>
@@ -43,6 +47,39 @@ echo '<table>
         </thead>
         <tbody>';
          
+while ($row = mysqli_fetch_array($query))
+{
+    echo '<tr>
+            <td>'.$row['Cid'].'</td>
+            <td>'.$row['Cname'].'</td>
+            <td><a href="dropClass.php?Cid=' . $row['Cid'] . '">Drop</a></td>
+        </tr>';
+}
+
+
+echo '
+    </tbody>
+</table>';
+
+$query = mysqli_query($conn, $sql2);
+
+if (!$query) {
+    die ('SQL Error: ' . mysqli_error($conn));
+}
+
+echo '<br><br>
+<h2>Waitlisted</h2>';
+
+echo '<table>
+        <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Drop</th>
+            </tr>
+        </thead>
+        <tbody>';
+
 while ($row = mysqli_fetch_array($query))
 {
     echo '<tr>

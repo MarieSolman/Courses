@@ -23,8 +23,8 @@ if (!$conn) {
 echo '<main>';
 echo '<h2>List of Students</h2>';
 
-echo "<div style='padding: 10px;'>
-    <input type='text' id='myInput' style='width: 30%' onkeyup='myFunction()' placeholder='Search for courses' title='Type in a course'>
+echo "<div style='padding: 0 0 15px 0'>
+    <input type='text' id='myInput' style='width: 30%' onkeyup='myFunction()' placeholder='Search for students'>
 </div>";
 
 $query = 'SELECT Sid, Sname, Advisor
