@@ -40,5 +40,3 @@ BEGIN
         UPDATE courses SET Waitlisted = Waitlisted + 1 WHERE Cid = NEW.Cid;
     END IF;
 END
-
-/*added course with Cid='585', Cname='Big Data Management'
