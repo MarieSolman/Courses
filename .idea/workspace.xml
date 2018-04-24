@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60be7650-897f-42d3-843c-1417d51d9a31" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/courses.php" beforeDir="false" afterPath="$PROJECT_DIR$/courses.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coursesdisplay.php" beforeDir="false" afterPath="$PROJECT_DIR$/coursesdisplay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enrolledIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/enrolledIn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/studenttable.php" beforeDir="false" afterPath="$PROJECT_DIR$/studenttable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="60be7650-897f-42d3-843c-1417d51d9a31" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +54,7 @@
       <file leaf-file-name="enrolledIn.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/enrolledIn.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
+            <state relative-caret-position="-94">
               <caret line="69" column="14" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
             </state>
           </provider>
@@ -227,12 +218,12 @@
       <workItem from="1524501253212" duration="3719000" />
       <workItem from="1524520239526" duration="2786000" />
       <workItem from="1524527483805" duration="948000" />
-      <workItem from="1524590849962" duration="5745000" />
+      <workItem from="1524590849962" duration="6046000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17853000" />
+    <option name="totallyTimeSpent" value="18154000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -586,7 +577,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/enrolledIn.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
+        <state relative-caret-position="-94">
           <caret line="69" column="14" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
         </state>
       </provider>
